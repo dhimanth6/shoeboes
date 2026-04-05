@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>GullyLabs | Our Story</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:wght@400;500&display=swap');
+    :root {
+      --gl-black: #0a0a0a; --gl-bg-secondary: #161616; --gl-white: #f5f0e8;
+      --gl-red: #d63a2f; --gl-muted: #888; --gl-border: rgba(255,255,255,0.08);
+      --font-sans: 'DM Sans', sans-serif; --font-display: 'Bebas Neue', sans-serif;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body { background: #000; color: var(--gl-white); font-family: var(--font-sans); display: flex; justify-content: center; padding: 20px; }
+    .wrap { background: var(--gl-black); border: 0.5px solid var(--gl-border); border-radius: 16px; overflow: hidden; width: 100%; max-width: 800px; }
+    
+    /* Navigation */
+    .gl-nav { display: flex; align-items: center; justify-content: space-between; padding: 24px 28px; border-bottom: 0.5px solid var(--gl-border); }
+    .gl-wordmark { font-family: var(--font-display); font-size: 28px; letter-spacing: 3px; color: var(--gl-white); text-decoration: none;}
+    .gl-nav-links { display: flex; gap: 20px; font-size: 12px; letter-spacing: 1px; text-transform: uppercase; font-weight: 500; }
+    .gl-nav-links a { color: var(--gl-muted); text-decoration: none; transition: color 0.2s; }
+    .gl-nav-links a:hover, .gl-nav-links a.active { color: var(--gl-red); }
+
+    /* Editorial Content */
+    .gl-story-hero { padding: 60px 28px; border-bottom: 0.5px solid var(--gl-border); text-align: center; }
+    .gl-title { font-family: var(--font-display); font-size: 56px; letter-spacing: 2px; margin-bottom: 24px; }
+    .gl-prose { font-size: 15px; color: rgba(245,240,232,0.7); line-height: 1.8; max-width: 500px; margin: 0 auto 24px; text-align: left;}
+    .gl-prose strong { color: var(--gl-white); }
+    
+    .gl-quote-block { background: var(--gl-bg-secondary); padding: 40px; text-align: center; border-bottom: 0.5px solid var(--gl-border); }
+    .gl-quote { font-family: var(--font-display); font-size: 32px; color: var(--gl-red); letter-spacing: 1px; line-height: 1.2; }
+    
+    .gl-footer { padding: 24px 28px; display: flex; justify-content: space-between; font-size: 11px; color: var(--gl-muted); letter-spacing: 1px; }
+  </style>
+</head>
+<body>
+
+<div class="wrap">
+  <div class="gl-nav">
+    <a href="index.html" class="gl-wordmark">GULLYLABS</a>
+    <div class="gl-nav-links">
+      <a href="shop.html">Drops</a>
+      <a href="archive.html">Archive</a>
+      <a href="story.html" class="active">Lore</a>
+    </div>
+  </div>
+
+  <div class="gl-story-hero">
+    <div class="gl-title">WE GOT TIRED OF WEARING<br>OTHER PEOPLE'S STORIES.</div>
+    <div class="gl-prose">
+      <p>It didn’t start in a pristine design studio. It started with scuffed midsoles on concrete, jumping fences, and the heat of the city tarmac in Hyderabad.</p><br>
+      <p>For years, sneaker culture meant importing culture from overseas. We were wearing the history of Chicago basketball courts and London underground scenes, while ignoring the streets right outside our windows.</p><br>
+      <p><strong>GullyLabs is our correction.</strong></p><br>
+      <p>We take the raw materials of our streets—the dust of the maidan, the violent rain of the monsoon, the midnight neon of the tea stalls—and stitch them into silhouettes that speak our language.</p>
+    </div>
+  </div>
+
+  <div class="gl-quote-block">
+    <div class="gl-quote">"EVERY SCUFF IS A MEMORY. EVERY CREASE IS A MILESTONE. NEVER KEEP THEM IN THE BOX."</div>
+  </div>
+
+  <div class="gl-footer">
+    <div>© 2026 GULLYLABS WORLDWIDE</div>
+    <div>DESIGNED IN THE GULLY</div>
+  </div>
+</div>
+
+</body>
+</html>
