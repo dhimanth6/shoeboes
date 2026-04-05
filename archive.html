@@ -2,77 +2,39 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>GullyLabs | Archive</title>
   <style>
-    @import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:wght@400;500&display=swap');
-    :root {
-      --gl-black: #0a0a0a; --gl-bg-secondary: #161616; --gl-white: #f5f0e8;
-      --gl-red: #d63a2f; --gl-muted: #888; --gl-border: rgba(255,255,255,0.08);
-      --font-sans: 'DM Sans', sans-serif; --font-display: 'Bebas Neue', sans-serif;
-    }
+    @import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:wght@500;700&display=swap');
+    :root { --gl-black: #050505; --gl-white: #ffffff; --gl-pink: #FF2A54; --gl-cyan: #00F0FF; --font-sans: 'DM Sans', sans-serif; --font-display: 'Bebas Neue', sans-serif; --brutal-border: 4px solid var(--gl-black); }
     * { box-sizing: border-box; margin: 0; padding: 0; }
-    body { background: #000; color: var(--gl-white); font-family: var(--font-sans); display: flex; justify-content: center; padding: 20px; }
-    .wrap { background: var(--gl-black); border: 0.5px solid var(--gl-border); border-radius: 16px; overflow: hidden; width: 100%; max-width: 800px; }
-    
-    .gl-nav { display: flex; align-items: center; justify-content: space-between; padding: 24px 28px; border-bottom: 0.5px solid var(--gl-border); }
-    .gl-wordmark { font-family: var(--font-display); font-size: 28px; letter-spacing: 3px; color: var(--gl-white); text-decoration: none;}
-    .gl-nav-links { display: flex; gap: 20px; font-size: 12px; letter-spacing: 1px; text-transform: uppercase; font-weight: 500; }
-    .gl-nav-links a { color: var(--gl-muted); text-decoration: none; transition: color 0.2s; }
-    .gl-nav-links a:hover, .gl-nav-links a.active { color: var(--gl-red); }
-
-    .gl-header { padding: 40px 28px; border-bottom: 0.5px solid var(--gl-border); text-align: center; }
-    .gl-title { font-family: var(--font-display); font-size: 48px; letter-spacing: 2px; color: var(--gl-muted); }
-    .gl-sub { font-size: 13px; color: var(--gl-muted); margin-top: 10px; }
-
-    .gl-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1px; background: var(--gl-border); border-bottom: 0.5px solid var(--gl-border); }
-    .gl-card { background: var(--gl-black); padding: 30px; text-align: center; filter: grayscale(100%); opacity: 0.6; transition: opacity 0.3s; }
-    .gl-card:hover { opacity: 1; filter: grayscale(50%); }
-    .gl-card-name { font-size: 18px; font-weight: 500; margin-bottom: 8px; }
-    .gl-card-drop { font-size: 10px; letter-spacing: 2px; color: var(--gl-red); margin-bottom: 16px; font-weight: 500; }
-    .gl-sold-badge { display: inline-block; border: 1px solid var(--gl-muted); padding: 6px 14px; font-size: 11px; font-weight: 500; letter-spacing: 1px; }
-
-    .gl-footer { padding: 24px 28px; display: flex; justify-content: space-between; font-size: 11px; color: var(--gl-muted); letter-spacing: 1px; }
-    svg.shoe { width: 120px; height: 120px; margin-bottom: 20px; }
+    body { background: var(--gl-black); color: var(--gl-white); font-family: var(--font-sans); }
+    .gl-nav { display: flex; align-items: center; justify-content: space-between; padding: 20px 40px; background: var(--gl-white); color: var(--gl-black); border-bottom: var(--brutal-border); }
+    .gl-wordmark { font-family: var(--font-display); font-size: 36px; color: var(--gl-black); text-decoration: none; text-shadow: 2px 2px 0px var(--gl-cyan); }
+    .gl-nav-links { display: flex; gap: 30px; font-size: 14px; text-transform: uppercase; font-weight: 700; }
+    .gl-nav-links a { color: var(--gl-black); text-decoration: none; }
+    .gl-header { padding: 100px 40px; text-align: center; border-bottom: 1px solid #333; }
+    .gl-header h1 { font-family: var(--font-display); font-size: 120px; color: var(--gl-white); }
+    .gl-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(400px, 1fr)); border-bottom: 1px solid #333; }
+    .gl-card { padding: 60px; text-align: center; border-right: 1px solid #333; border-bottom: 1px solid #333; filter: grayscale(100%); transition: 0.3s; }
+    .gl-card:hover { filter: grayscale(0%); background: #111; }
+    .gl-card h2 { font-family: var(--font-display); font-size: 40px; margin: 20px 0 10px; }
+    .gl-sold { display: inline-block; border: 2px solid var(--gl-pink); color: var(--gl-pink); padding: 5px 15px; font-weight: 700; }
+    .gl-footer { padding: 40px; background: var(--gl-black); display: flex; justify-content: space-between; font-weight: 700; text-transform: uppercase; }
   </style>
 </head>
 <body>
-
-<div class="wrap">
-  <div class="gl-nav">
-    <a href="index.html" class="gl-wordmark">GULLYLABS</a>
-    <div class="gl-nav-links">
-      <a href="shop.html">Drops</a>
-      <a href="archive.html" class="active">Archive</a>
-      <a href="story.html">Lore</a>
-    </div>
-  </div>
-
-  <div class="gl-header">
-    <div class="gl-title">THE GRAVEYARD</div>
-    <div class="gl-sub">Gone forever. We never restock.</div>
-  </div>
-
+  <div class="gl-nav"><a href="index.html" class="gl-wordmark">GULLYLABS</a><div class="gl-nav-links"><a href="shop.html">Drops</a><a href="archive.html" style="border-bottom: 3px solid var(--gl-pink);">Archive</a><a href="story.html">Lore</a></div></div>
+  <div class="gl-header"><h1>THE GRAVEYARD</h1><p style="font-size: 20px; font-weight:700;">GONE FOREVER. WE NEVER RESTOCK.</p></div>
   <div class="gl-grid">
     <div class="gl-card">
-      <svg class="shoe" viewBox="0 0 200 140" fill="none"><path d="M30 90 Q40 60 80 55 L140 52 Q165 52 170 65 L175 82 Q178 90 170 95 L40 100 Q28 98 30 90Z" fill="#333"/></svg>
-      <div class="gl-card-drop">DROP 003</div>
-      <div class="gl-card-name">The Chaand</div>
-      <div class="gl-sold-badge">SOLD OUT IN 4 MINS</div>
+      <svg viewBox="0 0 120 90" width="60%" fill="none"><path d="M18 58 Q24 38 50 34 L85 32 Q100 32 104 42 L107 54 Q109 58 103 62 L22 64 Q15 62 18 58Z" fill="#a8b4c8"/></svg>
+      <h2>The Chaand</h2><div class="gl-sold">SOLD OUT IN 4 MINS</div>
     </div>
     <div class="gl-card">
-      <svg class="shoe" viewBox="0 0 200 140" fill="none"><path d="M30 90 Q40 60 80 55 L140 52 Q165 52 170 65 L175 82 Q178 90 170 95 L40 100 Q28 98 30 90Z" fill="#555"/></svg>
-      <div class="gl-card-drop">DROP 001</div>
-      <div class="gl-card-name">Pehli Baar</div>
-      <div class="gl-sold-badge">SOLD OUT IN 12 MINS</div>
+      <svg viewBox="0 0 120 90" width="60%" fill="none"><path d="M18 58 Q24 38 50 34 L85 32 Q100 32 104 42 L107 54 Q109 58 103 62 L22 64 Q15 62 18 58Z" fill="#e8c87a"/></svg>
+      <h2>Pehli Baar</h2><div class="gl-sold">SOLD OUT IN 12 MINS</div>
     </div>
   </div>
-
-  <div class="gl-footer">
-    <div>© 2026 GULLYLABS WORLDWIDE</div>
-    <div>DESIGNED IN THE GULLY</div>
-  </div>
-</div>
-
+  <div class="gl-footer"><div>© 2026 GULLYLABS</div><div>DESIGNED IN THE GULLY</div></div>
 </body>
 </html>
