@@ -50,6 +50,7 @@
       font-size: 28px;
       letter-spacing: 3px;
       color: var(--gl-white);
+      text-decoration: none;
     }
     .gl-nav-links {
       display: flex;
@@ -115,6 +116,8 @@
       letter-spacing: 1px;
       cursor: pointer;
       transition: filter 0.2s;
+      text-decoration: none;
+      display: inline-block;
     }
     .gl-btn-hero:hover {
       filter: brightness(1.1);
@@ -259,12 +262,11 @@
 <div class="wrap">
   
   <div class="gl-nav">
-    <div class="gl-wordmark">GULLYLABS</div>
+    <a href="index.html" class="gl-wordmark">GULLYLABS</a>
     <div class="gl-nav-links">
-      <a href="#">Drops</a>
-      <a href="#">Lookbook</a>
-      <a href="#">Lore</a>
-      <a href="#" class="active">The Lab</a>
+      <a href="shop.html">Drops</a>
+      <a href="archive.html">Archive</a>
+      <a href="story.html">Lore</a>
     </div>
   </div>
 
@@ -272,7 +274,7 @@
     <div class="gl-hero-badge">NEW ERA</div>
     <div class="gl-hero-title">Born in the Gully.<br>Built for the Streets.</div>
     <div class="gl-hero-sub">We don't make sneakers for glass display cases. Every silhouette is a memory of the city—raw, unapologetic, and highly limited.</div>
-    <button class="gl-btn-hero">Enter the Drop Zone ↗</button>
+    <a href="shop.html" class="gl-btn-hero">Enter the Drop Zone ↗</a>
   </div>
 
   <div class="gl-section">
@@ -305,7 +307,7 @@
           <div class="gl-timer-block"><div class="gl-timer-num" id="ts">23</div><div class="gl-timer-label">SEC</div></div>
         </div>
         
-        <button class="gl-btn-hero" style="width: 100%; padding: 12px; font-size: 13px;">Secure Your Pair</button>
+        <a href="shop.html" class="gl-btn-hero" style="width: 100%; padding: 12px; font-size: 13px; text-align: center;">Secure Your Pair</a>
       </div>
     </div>
   </div>
@@ -319,7 +321,7 @@
       <div class="gl-story-text">
         <p>It didn’t start in a boardroom. It started with scuffed midsoles on concrete, jumping fences, and the heat of the city tarmac. We got tired of wearing stories from other countries.</p>
         <p>GullyLabs is our canvas. We take the raw materials of our streets—the dust, the monsoon, the midnight neon—and stitch them into silhouettes that speak our language.</p>
-        <a href="#" class="gl-story-link">Read the full manifesto ↗</a>
+        <a href="story.html" class="gl-story-link">Read the full manifesto ↗</a>
       </div>
     </div>
   </div>
