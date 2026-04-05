@@ -2,134 +2,48 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>GullyLabs | Shop / Drops</title>
   <style>
-    @import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:wght@400;500&display=swap');
-    
+    @import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:wght@500;700&display=swap');
     :root {
-      --gl-black: #0a0a0a;
-      --gl-bg-secondary: #161616;
-      --gl-white: #f5f0e8;
-      --gl-red: #d63a2f;
-      --gl-muted: #888;
-      --gl-border: rgba(255,255,255,0.08);
-      --font-sans: 'DM Sans', sans-serif;
-      --font-display: 'Bebas Neue', sans-serif;
+      --gl-black: #050505; --gl-white: #ffffff; --gl-yellow: #FFE100;
+      --gl-pink: #FF2A54; --gl-cyan: #00F0FF; --gl-green: #00FF66; --gl-purple: #B700FF;
+      --font-sans: 'DM Sans', sans-serif; --font-display: 'Bebas Neue', sans-serif;
+      --brutal-border: 4px solid var(--gl-black); --brutal-shadow: 6px 6px 0px var(--gl-black);
     }
-
     * { box-sizing: border-box; margin: 0; padding: 0; }
-    body { 
-      background: #000; 
-      color: var(--gl-white); 
-      font-family: var(--font-sans);
-      display: flex;
-      justify-content: center;
-      padding: 20px;
-    }
+    body { background: var(--gl-white); color: var(--gl-black); font-family: var(--font-sans); }
+    
+    .gl-nav { display: flex; align-items: center; justify-content: space-between; padding: 20px 40px; background: var(--gl-white); border-bottom: var(--brutal-border); }
+    .gl-wordmark { font-family: var(--font-display); font-size: 36px; color: var(--gl-black); text-decoration: none; text-shadow: 2px 2px 0px var(--gl-cyan); }
+    .gl-nav-links { display: flex; gap: 30px; font-size: 14px; text-transform: uppercase; font-weight: 700; }
+    .gl-nav-links a { color: var(--gl-black); text-decoration: none; }
+    .gl-nav-links a.active { border-bottom: 3px solid var(--gl-pink); }
 
-    .wrap {
-      background: var(--gl-black);
-      border: 0.5px solid var(--gl-border);
-      border-radius: 16px;
-      overflow: hidden;
-      width: 100%;
-      max-width: 800px;
-    }
+    .gl-header { padding: 80px 40px; background: var(--gl-purple); color: var(--gl-white); border-bottom: var(--brutal-border); text-align: center; }
+    .gl-header h1 { font-family: var(--font-display); font-size: 100px; text-shadow: 6px 6px 0px var(--gl-black); margin-bottom: 10px;}
+    
+    .gl-filters { padding: 20px 40px; background: var(--gl-yellow); border-bottom: var(--brutal-border); display: flex; gap: 15px; justify-content: center;}
+    .gl-pill { border: var(--brutal-border); background: var(--gl-white); padding: 10px 20px; font-weight: 700; cursor: pointer; box-shadow: 4px 4px 0px var(--gl-black); text-transform: uppercase;}
+    .gl-pill.active { background: var(--gl-pink); color: var(--gl-white); }
 
-    /* Navigation */
-    .gl-nav {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      padding: 24px 28px;
-      border-bottom: 0.5px solid var(--gl-border);
-    }
-    .gl-wordmark {
-      font-family: var(--font-display);
-      font-size: 28px;
-      letter-spacing: 3px;
-      color: var(--gl-white);
-      text-decoration: none;
-    }
-    .gl-nav-links {
-      display: flex;
-      gap: 20px;
-      font-size: 12px;
-      letter-spacing: 1px;
-      text-transform: uppercase;
-      font-weight: 500;
-    }
-    .gl-nav-links a {
-      color: var(--gl-muted);
-      text-decoration: none;
-      transition: color 0.2s;
-    }
-    .gl-nav-links a:hover, .gl-nav-links a.active {
-      color: var(--gl-red);
-    }
-
-    /* Header */
-    .gl-header { padding: 40px 28px 24px; border-bottom: 0.5px solid var(--gl-border); }
-    .gl-page-label { font-size: 11px; letter-spacing: 3px; color: var(--gl-red); font-weight: 500; margin-bottom: 12px; display: block; }
-    .gl-hero-title { font-family: var(--font-display); font-size: 48px; letter-spacing: 1px; line-height: 1; margin-bottom: 12px; }
-    .gl-hero-sub { font-size: 14px; color: rgba(245,240,232,0.6); line-height: 1.6; max-width: 480px; }
-
-    /* Filters */
-    .gl-filters { display: flex; gap: 8px; padding: 16px 28px; border-bottom: 0.5px solid var(--gl-border); flex-wrap: wrap; }
-    .gl-pill { font-size: 12px; letter-spacing: 1px; padding: 6px 16px; border-radius: 20px; border: 0.5px solid var(--gl-border); color: var(--gl-muted); cursor: pointer; background: transparent; font-family: var(--font-sans); transition: all 0.15s; text-transform: uppercase; }
-    .gl-pill:hover { border-color: rgba(255,255,255,0.2); color: var(--gl-white); }
-    .gl-pill.active { background: var(--gl-red); border-color: var(--gl-red); color: #fff; }
-
-    /* Sections */
-    .gl-section { padding: 32px 28px; border-bottom: 0.5px solid var(--gl-border); }
-    .gl-section-label { font-size: 11px; letter-spacing: 3px; color: var(--gl-red); font-weight: 500; margin-bottom: 20px; }
-
-    /* Featured Drop */
-    .gl-featured { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; align-items: center; background: var(--gl-bg-secondary); border-radius: 12px; padding: 24px; border: 0.5px solid var(--gl-border); }
-    .gl-feat-img { background: var(--gl-black); border-radius: 8px; aspect-ratio: 1; display: flex; align-items: center; justify-content: center; border: 0.5px solid var(--gl-border); }
-    .gl-feat-drop-tag { font-size: 10px; letter-spacing: 2px; color: var(--gl-red); margin-bottom: 10px; font-weight: 500; }
-    .gl-feat-name { font-size: 26px; font-weight: 500; line-height: 1.1; margin-bottom: 8px; }
-    .gl-feat-lore { font-size: 13px; color: var(--gl-muted); line-height: 1.6; margin-bottom: 18px; }
-    .gl-timer { display: flex; gap: 12px; margin-bottom: 18px; }
-    .gl-timer-block { text-align: center; }
-    .gl-timer-num { font-family: var(--font-display); font-size: 24px; line-height: 1; color: var(--gl-white); }
-    .gl-timer-label { font-size: 10px; color: var(--gl-muted); letter-spacing: 1px; margin-top: 4px; }
-    .gl-timer-sep { font-size: 20px; color: var(--gl-red); align-self: flex-start; margin-top: 2px; }
-    .gl-feat-meta { display: flex; align-items: center; justify-content: space-between; margin-bottom: 16px; }
-    .gl-feat-price { font-size: 20px; font-weight: 500; }
-    .gl-stock-badge { font-size: 11px; padding: 4px 12px; border-radius: 20px; background: rgba(214,58,47,0.1); color: var(--gl-red); border: 0.5px solid rgba(214,58,47,0.3); }
-    .gl-btn-primary { width: 100%; padding: 14px; border-radius: 8px; background: var(--gl-red); color: #fff; border: none; font-size: 13px; letter-spacing: 1px; cursor: pointer; font-family: var(--font-sans); font-weight: 500; margin-bottom: 8px; transition: filter 0.2s;}
-    .gl-btn-primary:hover { filter: brightness(1.1); }
-    .gl-btn-secondary { width: 100%; padding: 12px; border-radius: 8px; background: transparent; color: rgba(245,240,232,0.6); border: 0.5px solid rgba(245,240,232,0.15); font-size: 12px; cursor: pointer; font-family: var(--font-sans); transition: color 0.2s, border-color 0.2s;}
-    .gl-btn-secondary:hover { color: var(--gl-white); border-color: rgba(255,255,255,0.4); }
-
-    /* Grid */
-    .gl-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
-    .gl-card { border: 0.5px solid var(--gl-border); border-radius: 12px; overflow: hidden; cursor: pointer; transition: border-color 0.2s; background: var(--gl-bg-secondary); }
-    .gl-card:hover { border-color: rgba(255,255,255,0.2); }
-    .gl-card-img { aspect-ratio: 1; background: var(--gl-black); display: flex; align-items: center; justify-content: center; border-bottom: 0.5px solid var(--gl-border); position: relative; }
-    .gl-card-badge { position: absolute; top: 12px; left: 12px; font-size: 10px; letter-spacing: 1px; padding: 4px 8px; border-radius: 4px; font-weight: 500; }
-    .badge-live { background: var(--gl-red); color: #fff; }
-    .badge-coming { background: var(--gl-black); color: var(--gl-white); border: 0.5px solid var(--gl-border); }
-    .gl-card-body { padding: 16px; }
-    .gl-card-drop { font-size: 10px; letter-spacing: 2px; color: var(--gl-red); margin-bottom: 6px; font-weight: 500; }
-    .gl-card-name { font-size: 15px; font-weight: 500; margin-bottom: 6px; }
-    .gl-card-lore { font-size: 12px; color: var(--gl-muted); line-height: 1.5; margin-bottom: 16px; height: 36px; overflow: hidden; }
-    .gl-card-footer { display: flex; align-items: center; justify-content: space-between; border-top: 0.5px solid var(--gl-border); padding-top: 12px; }
-    .gl-card-price { font-size: 14px; font-weight: 500; }
-    .gl-card-sizes { font-size: 11px; color: var(--gl-muted); }
-
-    /* Footer */
-    .gl-footer { padding: 24px 28px; display: flex; justify-content: space-between; font-size: 11px; color: var(--gl-muted); letter-spacing: 1px; }
-
-    svg.shoe { width: 80%; height: 80%; }
+    .gl-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(400px, 1fr)); gap: 40px; padding: 60px 40px; background: var(--gl-white); }
+    .gl-card { border: var(--brutal-border); background: var(--gl-white); box-shadow: 12px 12px 0px var(--gl-black); display: flex; flex-direction: column; }
+    .gl-card-img { background: var(--gl-cyan); border-bottom: var(--brutal-border); aspect-ratio: 1; display: flex; align-items: center; justify-content: center; position: relative; }
+    .gl-card:nth-child(2) .gl-card-img { background: var(--gl-pink); }
+    .gl-card:nth-child(3) .gl-card-img { background: var(--gl-yellow); }
+    
+    .gl-badge { position: absolute; top: 15px; left: 15px; background: var(--gl-white); border: var(--brutal-border); padding: 5px 15px; font-weight: 700; box-shadow: 4px 4px 0px var(--gl-black); }
+    .gl-card-body { padding: 30px; flex: 1; display: flex; flex-direction: column;}
+    .gl-card-name { font-family: var(--font-display); font-size: 40px; margin-bottom: 10px; }
+    .gl-card-lore { font-size: 16px; font-weight: 500; margin-bottom: 20px; flex: 1;}
+    .gl-btn-buy { background: var(--gl-green); border: var(--brutal-border); padding: 15px; font-weight: 700; font-size: 18px; cursor: pointer; box-shadow: var(--brutal-shadow); text-transform: uppercase; width: 100%; transition: 0.1s;}
+    .gl-btn-buy:active { transform: translate(4px, 4px); box-shadow: 2px 2px 0px var(--gl-black); }
+    
+    .gl-footer { padding: 40px; background: var(--gl-black); color: var(--gl-white); display: flex; justify-content: space-between; font-weight: 700; text-transform: uppercase; }
   </style>
 </head>
 <body>
-
-<div class="wrap">
-  
   <div class="gl-nav">
     <a href="index.html" class="gl-wordmark">GULLYLABS</a>
     <div class="gl-nav-links">
@@ -140,145 +54,51 @@
   </div>
 
   <div class="gl-header">
-    <span class="gl-page-label">THE LAB / DROPS</span>
-    <div class="gl-hero-title">EVERY PAIR HAS A PAST.</div>
-    <div class="gl-hero-sub">These aren't just shoes. Each drop is a chapter — born in the gully, built for the streets. Shop live drops and lock in early access before the next one lands.</div>
+    <h1>THE LAB / DROPS</h1>
+    <p style="font-size: 20px; font-weight: 700;">EVERY PAIR HAS A PAST.</p>
   </div>
 
   <div class="gl-filters">
-    <button class="gl-pill active">All drops</button>
-    <button class="gl-pill">Live now</button>
-    <button class="gl-pill">Coming soon</button>
+    <button class="gl-pill active">All Drops</button>
+    <button class="gl-pill">Live Now</button>
     <button class="gl-pill">Collabs</button>
   </div>
 
-  <div class="gl-section">
-    <div class="gl-section-label">FEATURED DROP</div>
-    <div class="gl-featured">
-      <div class="gl-feat-img">
-        <svg class="shoe" viewBox="0 0 200 140" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <ellipse cx="100" cy="115" rx="80" ry="10" fill="rgba(255,255,255,0.03)"/>
-          <path d="M30 90 Q40 60 80 55 L140 52 Q165 52 170 65 L175 82 Q178 90 170 95 L40 100 Q28 98 30 90Z" fill="#1a1a1a"/>
-          <path d="M80 55 Q100 30 130 35 L145 50 L80 55Z" fill="#d63a2f"/>
-          <path d="M110 54 L155 52 Q165 52 170 65 L155 65Z" fill="#222"/>
-          <path d="M40 95 L170 92 L170 100 L38 102Z" fill="#0d0d0d"/>
-          <path d="M30 90 Q28 98 40 100 L170 96 L175 82" stroke="#444" stroke-width="1" fill="none"/>
-          <circle cx="60" cy="75" r="3" fill="#d63a2f" opacity="0.8"/>
-          <circle cx="75" cy="72" r="3" fill="#d63a2f" opacity="0.8"/>
-        </svg>
+  <div class="gl-grid">
+    <div class="gl-card">
+      <div class="gl-card-img">
+        <div class="gl-badge">LIVE NOW</div>
+        <svg viewBox="0 0 120 90" width="60%" fill="none"><path d="M18 58 Q24 38 50 34 L85 32 Q100 32 104 42 L107 54 Q109 58 103 62 L22 64 Q15 62 18 58Z" fill="#b8956a"/><path d="M50 34 Q62 16 82 20 L90 31 L50 34Z" fill="#8B6914"/><path d="M22 62 L103 60 L103 66 L21 67Z" fill="#8B6914"/></svg>
       </div>
-      <div>
-        <div class="gl-feat-drop-tag">DROP 007 · LIVE NOW</div>
-        <div class="gl-feat-name">The Kaali Raat 01</div>
-        <div class="gl-feat-lore">Designed at 3am under a single bulb. Blackout upper, ember sole. Built for those who move when the city sleeps.</div>
-        <div class="gl-timer">
-          <div class="gl-timer-block"><div class="gl-timer-num" id="th">11</div><div class="gl-timer-label">HRS</div></div>
-          <div class="gl-timer-sep">:</div>
-          <div class="gl-timer-block"><div class="gl-timer-num" id="tm">47</div><div class="gl-timer-label">MIN</div></div>
-          <div class="gl-timer-sep">:</div>
-          <div class="gl-timer-block"><div class="gl-timer-num" id="ts">23</div><div class="gl-timer-label">SEC</div></div>
-        </div>
-        <div class="gl-feat-meta">
-          <div class="gl-feat-price">₹4,999</div>
-          <div class="gl-stock-badge">Only 14 pairs left</div>
-        </div>
-        <button class="gl-btn-primary">Cop now ↗</button>
-        <button class="gl-btn-secondary">Select size</button>
+      <div class="gl-card-body">
+        <div class="gl-card-name">Mitti Mk.II</div>
+        <div class="gl-card-lore">Mud-tan upper, memory of every gully it walked through.</div>
+        <button class="gl-btn-buy">Buy - ₹3,799</button>
+      </div>
+    </div>
+    <div class="gl-card">
+      <div class="gl-card-img">
+        <div class="gl-badge">COLLAB</div>
+        <svg viewBox="0 0 120 90" width="60%" fill="none"><path d="M18 58 Q24 38 50 34 L85 32 Q100 32 104 42 L107 54 Q109 58 103 62 L22 64 Q15 62 18 58Z" fill="#1a1a2e"/><path d="M50 34 Q62 16 82 20 L90 31 L50 34Z" fill="#d63a2f"/><path d="M22 62 L103 60 L103 66 L21 67Z" fill="#111"/></svg>
+      </div>
+      <div class="gl-card-body">
+        <div class="gl-card-name">Bijli 001</div>
+        <div class="gl-card-lore">Flash-dyed canvas, hand-stitched lightning bolt. 50 pairs.</div>
+        <button class="gl-btn-buy">Buy - ₹6,499</button>
+      </div>
+    </div>
+    <div class="gl-card">
+      <div class="gl-card-img">
+        <div class="gl-badge" style="background:var(--gl-yellow);">COMING SOON</div>
+        <h2 style="font-family:var(--font-display); font-size: 40px; color:#fff;">?</h2>
+      </div>
+      <div class="gl-card-body">
+        <div class="gl-card-name">Baadal — TBA</div>
+        <div class="gl-card-lore">Inspired by monsoon season on the rooftops.</div>
+        <button class="gl-btn-buy" style="background: #ccc; cursor:not-allowed;">Join Waitlist</button>
       </div>
     </div>
   </div>
-
-  <div class="gl-section" style="border-bottom: none;">
-    <div class="gl-section-label">THE GRID</div>
-    <div class="gl-grid">
-
-      <div class="gl-card">
-        <div class="gl-card-img">
-          <div class="gl-card-badge badge-live">LIVE</div>
-          <svg viewBox="0 0 120 90" width="80" height="60" fill="none">
-            <ellipse cx="60" cy="78" rx="48" ry="6" fill="rgba(255,255,255,0.03)"/>
-            <path d="M18 58 Q24 38 50 34 L85 32 Q100 32 104 42 L107 54 Q109 58 103 62 L22 64 Q15 62 18 58Z" fill="#b8956a"/>
-            <path d="M50 34 Q62 16 82 20 L90 31 L50 34Z" fill="#8B6914"/>
-            <path d="M22 62 L103 60 L103 66 L21 67Z" fill="#8B6914"/>
-          </svg>
-        </div>
-        <div class="gl-card-body">
-          <div class="gl-card-drop">DROP 006</div>
-          <div class="gl-card-name">Mitti Mk.II</div>
-          <div class="gl-card-lore">Mud-tan upper, memory of every gully it walked through.</div>
-          <div class="gl-card-footer">
-            <div class="gl-card-price">₹3,799</div>
-            <div class="gl-card-sizes">UK 6–11</div>
-          </div>
-        </div>
-      </div>
-
-      <div class="gl-card">
-        <div class="gl-card-img">
-          <div class="gl-card-badge badge-live">COLLAB</div>
-          <svg viewBox="0 0 120 90" width="80" height="60" fill="none">
-            <ellipse cx="60" cy="78" rx="48" ry="6" fill="rgba(255,255,255,0.03)"/>
-            <path d="M18 58 Q24 38 50 34 L85 32 Q100 32 104 42 L107 54 Q109 58 103 62 L22 64 Q15 62 18 58Z" fill="#1a1a2e"/>
-            <path d="M50 34 Q62 16 82 20 L90 31 L50 34Z" fill="#d63a2f"/>
-            <path d="M65 46 L72 34 L78 46 L68 40Z" fill="#FFD700" opacity="0.9"/>
-            <path d="M22 62 L103 60 L103 66 L21 67Z" fill="#111"/>
-          </svg>
-        </div>
-        <div class="gl-card-body">
-          <div class="gl-card-drop">DROP 005 · RAWMATS</div>
-          <div class="gl-card-name">Bijli 001</div>
-          <div class="gl-card-lore">Flash-dyed canvas, hand-stitched lightning bolt. 50 pairs.</div>
-          <div class="gl-card-footer">
-            <div class="gl-card-price">₹6,499</div>
-            <div class="gl-card-sizes">UK 7–10</div>
-          </div>
-        </div>
-      </div>
-
-      <div class="gl-card">
-        <div class="gl-card-img">
-          <div class="gl-card-badge badge-coming">SOON</div>
-          <svg viewBox="0 0 120 90" width="80" height="60" fill="none">
-            <ellipse cx="60" cy="78" rx="48" ry="6" fill="rgba(255,255,255,0.02)"/>
-            <path d="M18 58 Q24 38 50 34 L85 32 Q100 32 104 42 L107 54 Q109 58 103 62 L22 64 Q15 62 18 58Z" fill="#e8e4dc" opacity="0.1"/>
-            <text x="60" y="52" text-anchor="middle" font-size="10" fill="var(--gl-muted)" font-family="var(--font-sans)">UNREVEALED</text>
-          </svg>
-        </div>
-        <div class="gl-card-body">
-          <div class="gl-card-drop">DROP 008</div>
-          <div class="gl-card-name">Baadal — tba</div>
-          <div class="gl-card-lore">Inspired by monsoon season on the rooftops.</div>
-          <div class="gl-card-footer">
-            <div class="gl-card-price">TBC</div>
-            <div class="gl-card-sizes">Early access</div>
-          </div>
-        </div>
-      </div>
-
-    </div>
-  </div>
-
-  <div class="gl-footer">
-    <div>© 2026 GULLYLABS WORLDWIDE</div>
-    <div>DESIGNED IN THE GULLY</div>
-  </div>
-
-</div>
-
-<script>
-  // Countdown Timer Logic
-  var secs = 23, mins = 47, hrs = 11;
-  setInterval(function() {
-    secs--;
-    if (secs < 0) { secs = 59; mins--; }
-    if (mins < 0) { mins = 59; hrs--; }
-    if (hrs < 0) hrs = 0;
-    
-    document.getElementById('th').textContent = hrs < 10 ? '0' + hrs : hrs;
-    document.getElementById('tm').textContent = mins < 10 ? '0' + mins : mins;
-    document.getElementById('ts').textContent = secs < 10 ? '0' + secs : secs;
-  }, 1000);
-</script>
-
+  <div class="gl-footer"><div>© 2026 GULLYLABS</div><div>DESIGNED IN THE GULLY</div></div>
 </body>
 </html>
